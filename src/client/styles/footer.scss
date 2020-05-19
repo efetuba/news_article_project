@@ -1,0 +1,8 @@
+$theme-color: violet;
+$theme-font:"Arial";
+
+p{
+    background: $theme-color;
+    font-family:$theme-font;
+    text-align: center;
+}
