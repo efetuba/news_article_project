@@ -20,8 +20,8 @@ app.use(cors());
 
 console.log(__dirname)
 
-app.get('/all', function (req, res) {
-    res.sendFile(path.resolve('src/client/views/index.html'))
+app.get('/', function (req, res) {
+    res.sendFile('dist/index.html');
 })
 
 // designates what port the app will listen to for incoming requests
@@ -33,23 +33,21 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 // setup route
-projectData=[];
 
 app.post('/results', postToApi);
-
 function postToApi(req, res) {
-    consolo.log(req);
+    console.log(req);
     let data=[];
     let form=req.body.url;
     textapi.sentiment({
-      'url': form,
-      'mode':'document'
+       'url' : form,
+       'mode' : 'document'
     }, 
-    function(error, response) {
+    function(error, res) {
        if(error === null){
-         data.text= response.text;
-         data.polarity= response.polarity;
-         data.polarity_confidence= response.polarity_confidence;
+         data.text= res.text;
+         data.polarity= res.polarity;
+         data.polarity_confidence= res.polarity_confidence;
          res.send(data);
          console.log(data);
        }else{
