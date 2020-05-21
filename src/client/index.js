@@ -9,5 +9,5 @@ import './styles/header.scss'
 
 export{
     checkForUrl,
-    handleSubmit,  
+    handleSubmit
 }

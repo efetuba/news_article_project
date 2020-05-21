@@ -29,11 +29,11 @@ app.listen(8081, function () {
     console.log('Example app listening on port!')
 })
 
+
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
-// setup route
-
+// POST route to API
 app.post('/results', postToApi);
 function postToApi(req, res) {
     console.log(req);
