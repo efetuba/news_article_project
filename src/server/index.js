@@ -28,12 +28,11 @@ app.get('/', function (req, res) {
 app.listen(8081, function () {
     console.log('Example app listening on port!')
 })
-
-
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 // POST route to API
+projectData={};
 app.post('/results', postToApi);
 function postToApi(req, res) {
     console.log(req);
@@ -48,7 +47,8 @@ function postToApi(req, res) {
          data.text= res.text;
          data.polarity= res.polarity;
          data.polarity_confidence= res.polarity_confidence;
-         res.send(data);
+         projectData.push(data);
+         res.send(projectData);
          console.log(data);
        }else{
         console.log("error");  
@@ -56,4 +56,8 @@ function postToApi(req, res) {
     }); 
 }
 
-  
+//GET route
+app.get('/all', sendData);
+ function sendData (req, res){
+  res.send(projectData)
+};  

@@ -4,7 +4,7 @@ async function handleSubmit(event){
   const valid=Client.checkForUrl(formInput);
     console.log("::: Form Submitted :::")
   if(valid){
-    await fetch ('http://localhost:8081/results', {
+   const response = await fetch ('http://localhost:8081/results', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -13,12 +13,22 @@ async function handleSubmit(event){
         body: JSON.stringify({url:formInput})
     })
     .then(res => res.json())
-    .then(function(res) {
-      console.log(res);
-      document.getElementById("text").innerHTML = "Text: " + res.text;
-      document.getElementById('polarity').innerHTML = "Polarity: " +  res.polarity;
-      document.getElementById('pop-con').innerHTML = "Polarity Confidence: " + res.polarity_confidence;
-    })
+    .then(updateUI()) 
   }
 }
+//Update
+const updateUI = async () => {  
+  const res = await fetch('http://localhost:8081/all');
+  try{
+    console.log(res);
+    document.getElementById("text").innerHTML = "Text: " + res.text;
+    document.getElementById('polarity').innerHTML = "Polarity: " +  res.polarity;
+    document.getElementById('pop-con').innerHTML = "Polarity Confidence: " + res.polarity_confidence;
+  }catch(error){
+    console.log("error", error);
+  }
+}
+
 export{handleSubmit }
+
+
