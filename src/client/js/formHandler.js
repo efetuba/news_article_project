@@ -16,7 +16,7 @@ async function handleSubmit(event){
         },
         body: JSON.stringify({url:formInput})
     })
-    .then(res => res.json()) 
+    .then(response => response.json()) 
     .then(function(response){
       document.getElementById("text").innerHTML = "Text: " + response.text;
       document.getElementById('polarity').innerHTML = "Polarity: " +  response.polarity;
