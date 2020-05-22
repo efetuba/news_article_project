@@ -36,29 +36,26 @@ projectData={};
 app.post('/results', postToApi);
 function postToApi(req, res) {
     console.log(req);
-    let data=[];
+    let data={};
     let form=req.body.url;
     textapi.sentiment({
        'url' : form,
        'mode' : 'document'
     }, 
-    function(error, res) {
+    function(error, response) {
        if(error === null){
          projectData=data;
-         data.text= res.text;
-         data.polarity= res.polarity;
-         data.polarity_confidence= res.polarity_confidence;
+         data.text= response.text;
+         data.polarity= response.polarity;
+         data.polarity_confidence= response.polarity_confidence;
+         Object.assign(projectData, data);
+         console.log('API called', projectData);
          res.send(data);
-         console.log(data);
+         
        }else{
         console.log("error");  
        } 
     }); 
 }
 
-//GET route
-app.get('/all', sendData);
- function sendData (req, res){
-  res.send(projectData)
-};  
 
