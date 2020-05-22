@@ -7,7 +7,7 @@ const bodyParser=require('body-parser');
 const cors =require('cors');
 const mockAPIResponse = require('./mockAPI.js');
 const app = express();
-var aylien = require("aylien_textapi");
+var aylien = require('aylien_textapi');
 var textapi = new aylien({
     application_id: process.env.APP_ID,
     application_key: process.env.APP_KEY
@@ -44,11 +44,11 @@ function postToApi(req, res) {
     }, 
     function(error, res) {
        if(error === null){
+         projectData=data;
          data.text= res.text;
          data.polarity= res.polarity;
          data.polarity_confidence= res.polarity_confidence;
-         projectData.push(data);
-         res.send(projectData);
+         res.send(data);
          console.log(data);
        }else{
         console.log("error");  
@@ -61,3 +61,4 @@ app.get('/all', sendData);
  function sendData (req, res){
   res.send(projectData)
 };  
+
