@@ -21,10 +21,11 @@ async function handleSubmit(event){
       document.getElementById("text").innerHTML = "Text: " + response.text;
       document.getElementById('polarity').innerHTML = "Polarity: " +  response.polarity;
       document.getElementById('pop-con').innerHTML = "Polarity Confidence: " + response.polarity_confidence;
-      console.log(res);
+      console.log(response);
+    }).catch((error)=> {
+      console.log(error);
     })
   }
-
 export{handleSubmit }
 
 
