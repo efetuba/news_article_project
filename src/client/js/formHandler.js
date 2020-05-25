@@ -18,9 +18,10 @@ async function handleSubmit(event){
     })
     .then(response => response.json()) 
     .then(function(response){
-      document.getElementById("text").innerHTML = "Text: " + response.text;
-      document.getElementById('polarity').innerHTML = "Polarity: " +  response.polarity;
-      document.getElementById('pop-con').innerHTML = "Polarity Confidence: " + response.polarity_confidence;
+      document.getElementById("text").innerHTML =  response.text;
+      document.getElementById('polarity').innerHTML =  response.polarity;
+      document.getElementById('pop-con').innerHTML = response.polarity_confidence;
+      document.getElementById('subjectivity').innerHTML= response.subjectivity;
       console.log(response);
     }).catch((error)=> {
       console.log(error);

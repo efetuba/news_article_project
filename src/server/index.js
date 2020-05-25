@@ -48,6 +48,7 @@ function postToApi(req, res) {
          data.text= response.text;
          data.polarity= response.polarity;
          data.polarity_confidence= response.polarity_confidence;
+         data.subjectivity= response.subjectivity;
          Object.assign(projectData, data);
          console.log('API called', projectData);
          res.send(data);

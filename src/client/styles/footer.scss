@@ -1,7 +1,7 @@
 $theme-color: violet;
-$theme-font:"Arial";
+$theme-font:'Roboto Mono', monospace;
 
-p{
+footer{
     background: $theme-color;
     font-family:$theme-font;
     text-align: center;

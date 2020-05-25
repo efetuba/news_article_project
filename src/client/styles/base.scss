@@ -1,14 +1,27 @@
+$theme-font: 'Roboto', sans-serif;
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: $theme-font;
+    justify-content: center;
 }
 
 main {
     flex: 2;
+    font-family: $theme-font;
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
+    font-family: $theme-font;
+}
+#return {
+    font-family: $theme-font;
+}
+strong{
+    font-family: $theme-font;
+    font-size: 1em;
+    text-decoration: underline;
 }

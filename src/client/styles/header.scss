@@ -1,5 +1,11 @@
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px 40px;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    background:darken($color: #000000, $amount: 0);
+}
+h2{
+   text-align: center;
 }

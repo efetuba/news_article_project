@@ -3,20 +3,25 @@
     <head>
         <meta charset="utf-8">
         <title>Article Evaluation</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+            <div class="header">
+                <h1>Evaluation of News Article with NLP</h1>
             </div>
         </header>
 
         <main>
+            <section>
+                <div class="title">
+                    <h2>AYLIEN Text Analysis API</h2>
+                    <p> AYLIEN leverages Artificial Intelligence to empower thousands of forward-thinking enterprises and developers to collect, analyze, and understand vast amounts of human-generated content.</p>
+                </div>
+            </section>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
                     <input id="url_main" type="text" name="input" value=""  placeholder="Please enter a URL!">
@@ -24,18 +29,19 @@
                 </form>
             <section>
 
-            <section>
+            <section id="return">
                 <strong>Article Results:</strong>
                 <div id="results">
-                    <div id="text"></div>
-                    <div id="polarity"></div>
-                    <div id="pop-con"></div>
+                    <div id="polarity">Polarity: </div>
+                    <div id="subjectivity"> Subjectivity: </div>
+                    <div id="pop-con">Confidence: </div>
+                    <div id="text"> Text: </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>Udacity FEND Project</p>
         </footer>
         <script>
             // Check that service workers are supported
