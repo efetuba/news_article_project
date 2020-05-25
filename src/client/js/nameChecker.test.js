@@ -1,11 +1,15 @@
-import { checkForURL } from './nameChecker'
+import { checkForUrl } from './nameChecker'
+describe('Test the function "checkForURL()" should be a function' , () => {
+    test('should return function to be TRUE ', () => {
+        expect(typeof checkForUrl).toBe("function");
+    });
+});
 
-
-describe("test for valid url", ()=> {
-    const formInput = {
-        url : 'https://www.wikipedia.org/'
-    }
+describe("Test for valid url", ()=> {
+    const formInput = "https://www.wikipedia.org";
     test('should return valid url', ()=> {
-        expect(checkForURL(formInput)).toBeTruthy;
+        const response=checkForUrl(formInput);
+        expect(response).toBeDefined();
+        expect(response).toBe(true);
     });
 })
